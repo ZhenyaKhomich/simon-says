@@ -1,4 +1,28 @@
-import {choiceLevel} from './startPage.js'
+import { choiceLevel, elementsArray } from "./startPage.js";
+import { clickStart, buttonStart} from "./clickStart.js";
+
+
+function init() {
+	choiceLevel();
+  }
+  
+  init();
+  
+  buttonStart.onclick = clickStart;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // const keybord = document.getElementById("keybord");
 // const levelElements = document.querySelectorAll("input");
@@ -36,4 +60,3 @@ import {choiceLevel} from './startPage.js'
 //   }
 // }
 
-choiceLevel();

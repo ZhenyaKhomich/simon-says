@@ -1,37 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="assets/image/favicon.ico" />
-  <link rel="stylesheet" href="src/css/style.css" />
-  <title>Simon Says</title>
-</head>
-<body>
-  <div class="main">
-    <div class="container">
-      <div class="section-one">
-        <div class="level">
-          <input type="radio" id="easy" name="level" checked>
-          <label for="easy">easy</label>
-          <input type="radio" id="normal" name="level">
-          <label for="normal">normal</label>
-          <input type="radio" id="hard" name="level">
-          <label for="hard">hard</label>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="assets/image/favicon.ico" />
+    <link rel="stylesheet" href="src/css/style.css" />
+    <title>Simon Says</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="container">
+        <div class="section-one">
+          <div class="level">
+            <div class="level-title">Please, choise level</div>
+            <div class="level-inputs">
+              <input type="radio" id="easy" name="level" checked />
+              <label for="easy">easy</label>
+              <input type="radio" id="normal" name="level" />
+              <label for="normal">normal</label>
+              <input type="radio" id="hard" name="level" />
+              <label for="hard">hard</label>
+            </div>
+          </div>
+          <div class="raund">
+            <div class="raund-title">Raund:</div>
+            <div class="raund-number">1</div>
+          </div>
+          <div class="buttons">
+            <button class="button newGame">New game</button>
+            <button class="button repeatGame">Repeat sequence</button>
+          </div>
+        </div>
+        <div class="section-two">
+          <div class="button-start" id="button-start">
+            <img src="assets/image/start.png" alt="start" />
+          </div>
+          <div class="text-block"></div>
+        </div>
+        <div class="section-three">
+          <div class="keybord" id="keybord"></div>
         </div>
       </div>
-      <div class="section-two">
-        <div class="button-start">
-          <img src="assets/image/start.png" alt="start">
-        </div>
-      </div>
-      <div class="section-three">
-        <div class="keybord" id="keybord"></div>
-      </div>
+      <div class="modalTransparent"></div>
     </div>
-  </div>
-
-  <script src="src/js/script.js" type="module"></script>
-</body>
+    <script src="src/js/script.js" type="module"></script>
+  </body>
 </html>
