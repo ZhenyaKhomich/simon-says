@@ -3,19 +3,18 @@ const levelElements = document.querySelectorAll("input");
 const letter = ["A", "Z"];
 const finger = ["0", "9"];
 export let elementsArray = [];
-let level = "easy";
+export let level = "easy";
 let array;
 
 Array.from(levelElements).forEach((levelElement) => {
-  
   levelElement.onclick = function () {
     Array.from(levelElements).forEach((levelElement) => {
-      levelElement.removeAttribute('checked');
-    })
-    levelElement.setAttribute('checked', 'checked');
+      levelElement.removeAttribute("checked");
+    });
+    levelElement.setAttribute("checked", "checked");
     level = levelElement.id;
-		let keys = document.querySelectorAll('.key');
-		keys.forEach(key => key.remove());
+    let keys = document.querySelectorAll(".key");
+    keys.forEach((key) => key.remove());
     choiceLevel();
   };
 });
@@ -30,7 +29,7 @@ export function choiceLevel() {
     createKeybord(finger);
     createKeybord(letter);
   }
- return Array.from(new Set(elementsArray));
+  return level;
 }
 
 function createKeybord(array) {
@@ -38,12 +37,10 @@ function createKeybord(array) {
     let div = document.createElement("div");
     div.classList.add("key");
     div.innerText = String.fromCodePoint(i);
-    if(!isFinite(String.fromCodePoint(i))) {
+    if (!isFinite(String.fromCodePoint(i))) {
       elementsArray.push(String.fromCodePoint(i).toLowerCase());
     }
     elementsArray.push(String.fromCodePoint(i));
     keybord.append(div);
   }
 }
-
-

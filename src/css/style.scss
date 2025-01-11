@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Toy;
+  src: url('../../assets/fonts/ofont.ru_Toyz.ttf')
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -164,6 +169,7 @@ body {
     font-size: 50px;
     text-align: center;
     color: #3d3f3f;
+    overflow: hidden;
   }
 }
 
@@ -225,4 +231,67 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.modalWindow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 400px;
+  background-image: url("/assets/image/fone.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 2px solid red;
+  border-radius: 20px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 1px 1px 10px 3px rgb(225, 74, 4);
+
+  .modalImg {
+    width: 200px;
+    height: 200px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .modalText {
+    font-size: 30px;
+    font-family: Toy, sans-serif;
+    color:  red;
+    text-align: center;
+  }
+
+  .modalButton {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .btnModal {
+      background: linear-gradient(45deg, #19ca16 10%, #ab1d04 80%);
+      border: 2px solid red;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      color: aquamarine;
+      cursor: pointer;
+      transition: all 0.3s linear;
+  
+      &:hover {
+        color:#060806;
+        transform: scale(1.1);
+        border: 2px solid green;
+        box-shadow: 1px 1px 10px 3px green;
+      }
+    }
+  }
+
+  
 }
