@@ -1,24 +1,32 @@
 import { elementsArray } from "./startPage.js";
 import { clickKey, keyDown } from "./enterAnswer.js";
-export const buttonStart = document.getElementById("button-start");
-const textBlock = document.querySelector(".text-block");
-const raundBlock = document.querySelector(".raund");
-const raundNumber = document.querySelector(".raund-number");
-const levelTitle = document.querySelector(".level-title");
-const buttonsElement = document.querySelector(".buttons");
-const modalTransparent = document.querySelector(".modalTransparent");
+import { repeatSequence, newGame } from "./result.js";
+
 export let result = [];
 let raund = 1;
+let textBlock = document.querySelector(".text-block");
+let modalTransparent = document.querySelector(".modalTransparent");
 
 export function clickStart() {
+  newGame();
+  repeatSequence();
+  const raundNumber = document.querySelector(".raund-number");
+  const buttonStart = document.getElementById("button-start");
+  const raundBlock = document.querySelector(".raund");
+  const buttonsElement = document.querySelector(".buttons");
+  const levelTitle = document.querySelector(".level-title");
+  textBlock = document.querySelector(".text-block");
+  modalTransparent = document.querySelector(".modalTransparent");
 
   modalTransparent.style.display = 'block';
 
   setTimeout(() => {
     randomElement(elementsArray, raundNumber.innerText);
+    buttonStart.style.display = "none";
   });
+
   textBlock.style.display = "block";
-  buttonStart.style.display = "none";
+ 
   raundBlock.style.display = "flex";
   buttonsElement.style.display = "flex"; 
   levelTitle.innerText = "Level:";
@@ -29,8 +37,8 @@ export function clickStart() {
     if (input.hasAttribute("checked")) {
       input.nextElementSibling.style.pointerEvents = "none";
     } else {
-      input.nextElementSibling.remove();
-      input.remove();
+      input.nextElementSibling.hidden = 'true';
+      input.hidden = 'true';
     }
   });
 }
@@ -44,7 +52,7 @@ function randomElement(elementsArray, raund) {
   showElements(result);
 }
 
-function showElements(result) {
+export function showElements(result) {
   const keys = document.querySelectorAll(".key");
   let i = 0;
 

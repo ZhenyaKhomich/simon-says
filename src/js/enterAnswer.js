@@ -3,12 +3,9 @@ import { result } from "./clickStart.js";
 import { resultAnswer } from "./result.js";
 
 let regular;
-const textBlock = document.querySelector(".text-block");
-
-  
 
   export function keyDown() {
-    console.log(1);
+    const textBlock = document.querySelector(".text-block");
     if (level === "easy") {
       regular = /^[0-9]$/;
     } else if (level === "normal") {
@@ -28,6 +25,7 @@ const textBlock = document.querySelector(".text-block");
 
   export function clickKey() {
     const keys = document.querySelectorAll(".key");
+    const textBlock = document.querySelector(".text-block");
 
     keys.forEach((key) => {
       key.onclick = function () {
@@ -36,7 +34,6 @@ const textBlock = document.querySelector(".text-block");
       };
     });
   }
-
 
   function showKeyDownOnKeybord(letter) {
     const keys = document.querySelectorAll(".key");
