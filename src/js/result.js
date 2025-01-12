@@ -20,6 +20,8 @@ export function resultAnswer(newStr, oldStr) {
         createModalWindow(2);
         showModal();
         newGame();
+        let audioWin = document.querySelector(".audioWin");
+        audioWin.play();
       } else {
         createModalWindow(3);
         showModal();
@@ -34,10 +36,14 @@ export function resultAnswer(newStr, oldStr) {
       let repeatGame = document.querySelector(".repeatGame");
       repeatGame.classList.add("inactive");
       attempt = false;
+      activeRepeatBtn = false;~
       createModalWindow(4);
       showModal();
-      continueLevel()
+      newGame();
+      continueLevel();
     } else {
+      let audioLose = document.querySelector(".audioLose");
+      audioLose.play();
       createModalWindow(1);
       showModal();
       newGame();
@@ -81,20 +87,17 @@ function nextLevel() {
 function continueLevel() {
   const textBlock = document.querySelector(".text-block");
   const btnContinue = document.querySelector(".btnModalContinue");
-  btnContinue.onclick = function() {
+  btnContinue.onclick = function () {
     hiddenModal();
     textBlock.innerHTML = "";
     answer = "";
-  }
+  };
 }
 
 export function newGame() {
   const btnsNewGame = document.querySelectorAll(".btnModalNewGame");
   const textBlock = document.querySelector(".text-block");
   let repeatGame = document.querySelector(".repeatGame");
-  repeatGame.classList.remove("inactive");
-  activeRepeatBtn = true;
-  attempt = true;
 
   btnsNewGame.forEach((btnNewGame) => {
     btnNewGame.onclick = () => {
@@ -103,6 +106,10 @@ export function newGame() {
       const buttonsElement = document.querySelector(".buttons");
       raundNumber = document.querySelector(".raund-number");
       buttonStart = document.getElementById("button-start");
+
+      repeatGame.classList.remove("inactive");
+      activeRepeatBtn = true;
+      attempt = true;
 
       hiddenModal();
       level = 1;
@@ -138,11 +145,9 @@ export function repeatSequence() {
   repeatGame = document.querySelector(".repeatGame");
   modalTransparent = document.querySelector(".modalTransparent");
 
-  
-
   repeatGame.onclick = function () {
     if (activeRepeatBtn) {
-      modalTransparent.style.display = 'block';
+      modalTransparent.style.display = "block";
       showElements(result);
       activeRepeatBtn = false;
       repeatGame.classList.add("inactive");

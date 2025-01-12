@@ -6,6 +6,7 @@ let regular;
 
   export function keyDown() {
     const textBlock = document.querySelector(".text-block");
+    
     if (level === "easy") {
       regular = /^[0-9]$/;
     } else if (level === "normal") {
@@ -15,6 +16,8 @@ let regular;
     }
 
     if (regular.test(event.key)) {
+      let audioBut = document.querySelector('.audioBut');
+      audioBut.play();
       textBlock.innerText += event.key;
       showKeyDownOnKeybord(event.key)
       resultAnswer(event.key, result);
@@ -26,9 +29,11 @@ let regular;
   export function clickKey() {
     const keys = document.querySelectorAll(".key");
     const textBlock = document.querySelector(".text-block");
+    let audioBut = document.querySelector('.audioBut');
 
     keys.forEach((key) => {
       key.onclick = function () {
+        audioBut.play();
         textBlock.innerText += event.target.innerText;
         resultAnswer(event.target.innerText, result);
       };

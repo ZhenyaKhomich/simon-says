@@ -54,7 +54,6 @@
   }
   
   .modalWindow {
-
     .modalButton {
       .btnModal {
         &:hover {
@@ -81,17 +80,20 @@ body {
   background-size: cover;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .container {
   max-width: 1000px;
+  max-height: calc(100vh - 50px);
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-direction: column;
   align-items: center;
   border: 2px solid red;
   border-radius: 20px;
   box-shadow: 0px 0px 300px 3px red, inset 0px 0px 100px 1px rgb(136, 255, 0);
+  overflow: hidden;
 }
 
 .section-one {
@@ -131,11 +133,6 @@ body {
         cursor: pointer;
         transition: all 0.5s ease;
         margin-right: 5px;
-
-        &:hover {
-          border-color: rgb(1, 255, 14);
-          color: black;
-        }
       }
 
       input:checked + label {
@@ -145,6 +142,7 @@ body {
         border-radius: 10px;
         background: linear-gradient(90deg, #00fff0 0%, #00ff00 80%);
         transform: scale(1.2);
+        pointer-events: none;
       }
     }
   }
@@ -188,13 +186,6 @@ body {
       transition: 0.3s linear;
       color: #6b6d6d;
       cursor: pointer;
-      
-      &:hover {
-        border: 2px solid rgb(171, 255, 4);
-        color: black;
-        transform: scale(1.1);
-        background: linear-gradient(45deg, #f6ee03 0%, #00ff00 90%);
-      }
     }
 
     .repeatGame.inactive {
@@ -203,10 +194,6 @@ body {
       border: 2px solid rgb(220, 225, 221);
       background: linear-gradient(45deg, #9cd4d0 20%, #83e183 50%);
       cursor: no-drop;
-
-      &:hover {
-        transform: scale(1);
-      }
     }
   }
 }
@@ -216,7 +203,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 10px 0 10px 0;
+  padding: 20px 0 20px 0;
   width: 100%;
   height: 200px;
 
@@ -226,10 +213,6 @@ body {
     height: 200px;
     cursor: pointer;
     transition: filter 0.5s linear;
-
-    &:hover {
-      filter: drop-shadow(1px 1px 10px rgb(132, 8, 8));
-    }
   }
 
   .button-start img {
@@ -249,6 +232,8 @@ body {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 50px;
     text-align: center;
+    line-height: 1.5;
+    vertical-align: middle;
     color: #3d3f3f;
     overflow: hidden;
   }
@@ -287,13 +272,6 @@ body {
     background: linear-gradient(45deg, #00fff0 10%, #00ff00 60%);
     cursor: pointer;
     transition: 0.4s linear;
-
-    &:hover {
-      border: 1px solid rgb(0, 254, 13);
-      background: linear-gradient(45deg, #00fff0 10%, #04ab04 80%);
-      transform: scale(1.1);
-      color: black;
-    }
   }
 
   .key-click {
@@ -364,15 +342,97 @@ body {
       color: aquamarine;
       cursor: pointer;
       transition: all 0.3s linear;
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .container {
+    max-width: calc(100vw - 50px);
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    max-width: calc(100vw - 30px);
+    max-height: calc(100vh - 30px);
+  }
+  .section-two {
+    height: 30vw;
+    .button-start {
+      width: 30vw;
+      height: 30vw;
+    }
   
-      &:hover {
-        color:#060806;
-        transform: scale(1.1);
-        border: 2px solid green;
-        box-shadow: 1px 1px 10px 3px green;
-      }
+    .text-block {
+      min-height: 80px;
+      padding: 10px;
+      font-size: 45px;
     }
   }
 
+  .section-three {
+    .keybord {
+      gap: 8px;
+      padding: 8px;
+      box-shadow: inset 0px 0px 10px rgb(20, 194, 156);
+      max-width: 85%;
+    }
   
+    .key {
+      width: 38px;
+      height: 38px;
+    }
+  }
+
+  .modalWindow {
+    width: 270px;
+    height: 400px;
+    gap: 15px;
+
+    .modalText {
+      font-size: 25px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    max-width: calc(100vw - 20px);
+    max-height: calc(100vh - 20px);
+  }
+  .section-one {
+    gap: 20px;
+    padding: 10px 0 0px 0;
+  }
+
+  .section-two {
+    padding: 10px 0 10px 0;
+    width: 100%;
+    height: 110px;
+  
+    .button-start {
+      width: 110px;
+      height: 110px;
+    }
+
+    .text-block {
+      width: 280px;
+      font-size: 40px;
+    }
+  }
+
+  .section-three {
+    padding: 0px 0 10px 0;
+    .keybord {
+      gap: 8px;
+      padding: 7px;
+      max-width: 90%;
+    }
+  
+    .key {
+      width: 38px;
+      height: 38px;
+    }
+  }
 }

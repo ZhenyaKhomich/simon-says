@@ -130,6 +130,23 @@ export function createHtmlPage() {
     main.appendChild(container);
     main.appendChild(modalTransparent);
 
+
+    const audioBut = document.createElement("audio");
+    audioBut.classList.add("audioBut");
+    audioBut.setAttribute('src', '../../assets/audio/butM.mp3')
+
+    const audioLose = document.createElement("audio");
+    audioLose.classList.add("audioLose");
+    audioLose.setAttribute('src', '../../assets/audio/loseM.mp3')
+
+    const audioWin = document.createElement("audio");
+    audioWin.classList.add("audioWin");
+    audioWin.setAttribute('src', '../../assets/audio/winM.mp3')
+
+    main.appendChild(audioBut);
+    main.appendChild(audioLose);
+    main.appendChild(audioWin);
+
     body.appendChild(main);
 
     resolve();

@@ -8,6 +8,8 @@ let textBlock = document.querySelector(".text-block");
 let modalTransparent = document.querySelector(".modalTransparent");
 
 export function clickStart() {
+  let audioBut = document.querySelector(".audioBut");
+  audioBut.play();
   newGame();
   repeatSequence();
   const raundNumber = document.querySelector(".raund-number");
