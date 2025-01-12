@@ -205,7 +205,7 @@ body {
   border: 1px solid red;
   padding: 10px;
   border-radius: 5px;
-  background-image: url("/assets/image/fone.jpg");
+  background-image: url("../../assets/image/fone.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   box-shadow: inset 0px 0px 10px rgb(20, 194, 156);
@@ -249,7 +249,7 @@ body {
   transform: translate(-50%, -50%);
   width: 300px;
   height: 400px;
-  background-image: url("/assets/image/fone.jpg");
+  background-image: url("../../assets/image/fone.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   border: 2px solid red;
@@ -261,6 +261,7 @@ body {
   gap: 20px;
   box-shadow: 1px 1px 10px 3px rgb(225, 74, 4);
 }
+
 .modalWindow .modalImg {
   width: 200px;
   height: 200px;
