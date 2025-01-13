@@ -10,10 +10,34 @@ let buttonStart = document.getElementById("button-start");
 let repeatGame = document.querySelector(".repeatGame");
 let activeRepeatBtn = true;
 let attempt = true;
+let isProcessing = true;
+let arrayAddaption = [];
+
+
+
+
+
 
 export function resultAnswer(newStr, oldStr) {
   oldStr = oldStr.join("");
-  answer += newStr;
+
+
+if(isProcessing) {
+  const textBlock = document.querySelector(".text-block");
+  arrayAddaption.push(newStr);
+  answer += arrayAddaption[0];
+  textBlock.innerText = answer;
+  isProcessing = false;
+} else {
+  return;
+}
+
+setTimeout(() => {
+  isProcessing = true;
+  arrayAddaption = [];
+},100)
+
+  // answer += newStr;
   if (oldStr.toLowerCase().startsWith(answer.toLowerCase())) {
     if (oldStr.toLowerCase() === answer.toLowerCase()) {
       if (level === 5) {
@@ -142,10 +166,12 @@ export function newGame() {
 }
 
 export function repeatSequence() {
+  const textBlock = document.querySelector(".text-block");
   repeatGame = document.querySelector(".repeatGame");
   modalTransparent = document.querySelector(".modalTransparent");
 
   repeatGame.onclick = function () {
+    textBlock.innerText = '';
     if (activeRepeatBtn) {
       modalTransparent.style.display = "block";
       showElements(result);

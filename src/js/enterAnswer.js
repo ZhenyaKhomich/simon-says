@@ -18,8 +18,8 @@ let regular;
     if (regular.test(event.key)) {
       let audioBut = document.querySelector('.audioBut');
       audioBut.play();
-      textBlock.innerText += event.key;
-      showKeyDownOnKeybord(event.key)
+      // textBlock.innerText += event.key;
+      showKeyDownOnKeybord(event.key);
       resultAnswer(event.key, result);
     } else {
       textBlock.innerText += "";
@@ -34,7 +34,7 @@ let regular;
     keys.forEach((key) => {
       key.onclick = function () {
         audioBut.play();
-        textBlock.innerText += event.target.innerText;
+        // textBlock.innerText += event.target.innerText;
         resultAnswer(event.target.innerText, result);
       };
     });
