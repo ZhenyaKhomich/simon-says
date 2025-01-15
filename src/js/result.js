@@ -1,4 +1,4 @@
-import { createModalWindow } from "./createHTML.js";
+import { createModalWindow, openModalWindow, changeOpenModalWindow } from "./createHTML.js";
 import { clickStart, result, showElements } from "./clickStart.js";
 import { init } from "./script.js";
 
@@ -14,13 +14,8 @@ let isProcessing = true;
 let arrayAddaption = [];
 
 
-
-
-
-
 export function resultAnswer(newStr, oldStr) {
   oldStr = oldStr.join("");
-
 
 if(isProcessing) {
   const textBlock = document.querySelector(".text-block");
@@ -98,6 +93,7 @@ function nextLevel() {
   const textBlock = document.querySelector(".text-block");
   btnNextLevel.onclick = () => {
     hiddenModal();
+    changeOpenModalWindow();
     raundNumber = document.querySelector(".raund-number");
     raundNumber.innerHTML = level;
     textBlock.innerHTML = "";
@@ -113,6 +109,7 @@ function continueLevel() {
   const btnContinue = document.querySelector(".btnModalContinue");
   btnContinue.onclick = function () {
     hiddenModal();
+    changeOpenModalWindow();
     textBlock.innerHTML = "";
     answer = "";
   };
@@ -136,6 +133,7 @@ export function newGame() {
       attempt = true;
 
       hiddenModal();
+      changeOpenModalWindow();
       level = 1;
       answer = "";
       levelTitle.innerText = "Please, choose level";
@@ -171,6 +169,7 @@ export function repeatSequence() {
   modalTransparent = document.querySelector(".modalTransparent");
 
   repeatGame.onclick = function () {
+    changeOpenModalWindow();
     textBlock.innerText = '';
     if (activeRepeatBtn) {
       modalTransparent.style.display = "block";

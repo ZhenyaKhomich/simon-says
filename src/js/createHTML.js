@@ -18,6 +18,7 @@ const dataModalWindow = [
 ];
 
 const body = document.body;
+export let openModalWindow = false;
 
 export function createHtmlPage() {
   return new Promise((resolve) => {
@@ -156,6 +157,8 @@ export function createHtmlPage() {
 export function createModalWindow(res) {
   let obj;
   const main = document.querySelector(".main");
+  openModalWindow = true;
+  
 
   if (res === 1) {
     obj = dataModalWindow[0];
@@ -220,4 +223,9 @@ export function createModalWindow(res) {
   modalWindow.append(modalButton);
 
   main.append(modalWindow);
+}
+
+
+export function changeOpenModalWindow() {
+  openModalWindow = false;
 }
