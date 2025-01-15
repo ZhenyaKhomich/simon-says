@@ -1,6 +1,7 @@
 import { elementsArray } from "./startPage.js";
-import { clickKey, keyDown } from "./enterAnswer.js";
+import { clickKey, keyDown, changeRepeatBoolen } from "./enterAnswer.js";
 import { repeatSequence, newGame } from "./result.js";
+
 
 export let result = [];
 let raund = 1;
@@ -80,6 +81,7 @@ export function showElements(result) {
         modalTransparent.style.display = 'none';
         clickKey();
         document.addEventListener("keydown", keyDown);
+        changeRepeatBoolen(2);
       }, 2000);
     }
   }, 1000);

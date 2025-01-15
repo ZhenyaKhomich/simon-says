@@ -4,9 +4,23 @@ import { resultAnswer } from "./result.js";
 import { openModalWindow } from "./createHTML.js";
 
 let regular;
+export let repeatBoolen = false;
+
+export function changeRepeatBoolen(a) {
+  if(a === 1) {
+    repeatBoolen = true;
+  } else {
+    repeatBoolen = false;
+  }
+}
+
 
 export function keyDown() {
   const textBlock = document.querySelector(".text-block");
+
+  if(repeatBoolen) {
+    return;
+  }
 
   if (level === "easy") {
     regular = /^[0-9]$/;

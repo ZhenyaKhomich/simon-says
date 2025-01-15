@@ -1,6 +1,7 @@
 import { createModalWindow, openModalWindow, changeOpenModalWindow } from "./createHTML.js";
 import { clickStart, result, showElements } from "./clickStart.js";
 import { init } from "./script.js";
+import {changeRepeatBoolen} from "./enterAnswer.js";
 
 let level = 1;
 let answer = "";
@@ -9,7 +10,7 @@ let raundNumber = document.querySelector(".raund-number");
 let buttonStart = document.getElementById("button-start");
 let repeatGame = document.querySelector(".repeatGame");
 let activeRepeatBtn = true;
-let attempt = true;
+let attempt = 0;
 let isProcessing = true;
 let arrayAddaption = [];
 
@@ -43,6 +44,7 @@ setTimeout(() => {
         audioWin.play();
       } else {
         createModalWindow(3);
+        repeatGame.hidden = 'true';
         showModal();
         level += 1;
         nextLevel();
@@ -51,17 +53,20 @@ setTimeout(() => {
       }
     }
   } else {
-    if (attempt) {
+    if (attempt < 1) {
       let repeatGame = document.querySelector(".repeatGame");
-      repeatGame.classList.add("inactive");
-      attempt = false;
-      activeRepeatBtn = false;~
+      // repeatGame.classList.add("inactive");
+      attempt += 1;
+      // activeRepeatBtn = false;
       createModalWindow(4);
       showModal();
       newGame();
       continueLevel();
+      repeatSequence();
+
     } else {
       let audioLose = document.querySelector(".audioLose");
+      activeRepeatBtn = false;
       audioLose.play();
       createModalWindow(1);
       showModal();
@@ -92,14 +97,16 @@ function nextLevel() {
   const btnNextLevel = document.querySelector(".btnModalNext");
   const textBlock = document.querySelector(".text-block");
   btnNextLevel.onclick = () => {
+    repeatGame.hidden = '';
     hiddenModal();
     changeOpenModalWindow();
+    changeRepeatBoolen(1);
     raundNumber = document.querySelector(".raund-number");
     raundNumber.innerHTML = level;
     textBlock.innerHTML = "";
     clickStart();
     activeRepeatBtn = true;
-    attempt = true;
+    attempt = 0;
     repeatGame.classList.remove("inactive");
   };
 }
@@ -110,6 +117,7 @@ function continueLevel() {
   btnContinue.onclick = function () {
     hiddenModal();
     changeOpenModalWindow();
+    changeRepeatBoolen(1);
     textBlock.innerHTML = "";
     answer = "";
   };
@@ -130,10 +138,11 @@ export function newGame() {
 
       repeatGame.classList.remove("inactive");
       activeRepeatBtn = true;
-      attempt = true;
+      attempt = 0;
 
       hiddenModal();
       changeOpenModalWindow();
+      changeRepeatBoolen(1);
       level = 1;
       answer = "";
       levelTitle.innerText = "Please, choose level";
@@ -163,12 +172,14 @@ export function newGame() {
   });
 }
 
+
 export function repeatSequence() {
   const textBlock = document.querySelector(".text-block");
   repeatGame = document.querySelector(".repeatGame");
   modalTransparent = document.querySelector(".modalTransparent");
 
   repeatGame.onclick = function () {
+    changeRepeatBoolen(1);
     changeOpenModalWindow();
     textBlock.innerText = '';
     if (activeRepeatBtn) {

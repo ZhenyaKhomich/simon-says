@@ -84,9 +84,11 @@ export function createHtmlPage() {
     const repeatGameButton = document.createElement("button");
     repeatGameButton.classList.add("button", "repeatGame");
     repeatGameButton.textContent = "Repeat sequence";
-
+    
     buttons.appendChild(newGameButton);
     buttons.appendChild(repeatGameButton);
+  
+    
 
     sectionOne.appendChild(level);
     sectionOne.appendChild(raund);
@@ -200,7 +202,7 @@ export function createModalWindow(res) {
     const btnModalNext = document.createElement("button");
     btnModalNext.classList.add("btnModal");
     btnModalNext.classList.add("btnModalNext");
-    btnModalNext.innerText = "Next Level";
+    btnModalNext.innerText = "Next";
 
     modalButton.append(btnModalNext);
   }
