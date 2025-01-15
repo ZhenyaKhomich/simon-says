@@ -9,6 +9,7 @@ let textBlock = document.querySelector(".text-block");
 let modalTransparent = document.querySelector(".modalTransparent");
 
 export function clickStart() {
+  let repeatGame = document.querySelector(".repeatGame");
   let audioBut = document.querySelector(".audioBut");
   audioBut.play();
   newGame();
@@ -22,7 +23,7 @@ export function clickStart() {
   modalTransparent = document.querySelector(".modalTransparent");
 
   modalTransparent.style.display = 'block';
-
+  repeatGame.hidden = '';
   setTimeout(() => {
     randomElement(elementsArray, raundNumber.innerText);
     buttonStart.style.display = "none";

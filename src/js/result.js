@@ -63,7 +63,6 @@ setTimeout(() => {
       newGame();
       continueLevel();
       repeatSequence();
-
     } else {
       let audioLose = document.querySelector(".audioLose");
       activeRepeatBtn = false;
@@ -117,7 +116,7 @@ function continueLevel() {
   btnContinue.onclick = function () {
     hiddenModal();
     changeOpenModalWindow();
-    changeRepeatBoolen(1);
+    changeRepeatBoolen(2);
     textBlock.innerHTML = "";
     answer = "";
   };
@@ -179,6 +178,7 @@ export function repeatSequence() {
   modalTransparent = document.querySelector(".modalTransparent");
 
   repeatGame.onclick = function () {
+    answer = "";
     changeRepeatBoolen(1);
     changeOpenModalWindow();
     textBlock.innerText = '';
